@@ -1,0 +1,61 @@
+﻿@model RecruitmentSelection.UI.Models.Training
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Creación</h1>
+
+<h4>Entrenamientos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="TrainingsCreate" asp-route-id="@Model.CandidateID">
+            <input asp-for="CandidateID" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level" class="control-label"></label>
+                <select asp-for="Level" class="form-control">
+                    <option value="Grado">Grado</option>
+                    <option value="PostGrado">PostGrado</option>
+                    <option value="Maestria">Maestria</option>
+                    <option value="Doctorado">Doctorado</option>
+                    <option value="Tecnico">Tecnico</option>
+                    <option value="Gestion">Gestion</option>
+                </select>
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialDate" class="control-label"></label>
+                <input asp-for="InitialDate" class="form-control" />
+                <span asp-validation-for="InitialDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Institution" class="control-label"></label>
+                <input asp-for="Institution" class="form-control" />
+                <span asp-validation-for="Institution" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Trainings" asp-route-id="@Model.CandidateID">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

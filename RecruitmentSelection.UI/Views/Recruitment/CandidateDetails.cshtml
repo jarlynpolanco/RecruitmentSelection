@@ -1,0 +1,83 @@
+﻿@model RecruitmentSelection.UI.Models.Candidate
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Candidate</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DocumentNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DocumentNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JobPosition)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JobPosition.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalaryWished)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalaryWished)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Languages)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Languages)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RecommendedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecommendedBy)
+        </dd>
+    </dl>
+</div>
+<div>
+    <ul id="tabs" class="nav nav-tabs">
+        <li class="nav-item"><a href="" data-target="#Proficiencies" data-toggle="tab" class="nav-link small text-uppercase active">Competencias</a></li>
+        <li class="nav-item"><a href="" data-target="#Trainings" data-toggle="tab" class="nav-link small text-uppercase">Entrenamientos</a></li>
+        <li class="nav-item"><a href="" data-target="#JobExperiences" data-toggle="tab" class="nav-link small text-uppercase">Experiencias</a></li>
+        <li class="nav-item"><a href="" data-target="#LanguagesList" data-toggle="tab" class="nav-link small text-uppercase">Idiomas</a></li>
+    </ul>
+    <br>
+    <div id="tabsContent" class="tab-content">
+        <div id="Proficiencies" class="tab-pane fade active">
+            <partial name="_ProficienciesList" model="Model.Proficiencies" />
+        </div>
+        <div id="Trainings" class="tab-pane fade">
+            <partial name="_TrainingsList" model="Model.Trainings" />
+        </div>
+        <div id="JobExperiences" class="tab-pane fade">
+            <partial name="_JobExperienceList" model="Model.JobExperiences" />
+        </div>
+        <div id="LanguagesList" class="tab-pane fade">
+            <partial name="_LanguagesList" model="Model.LanguagesList" />
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a href="javascript:void" onclick="window.close()">Back to List</a>
+</div>

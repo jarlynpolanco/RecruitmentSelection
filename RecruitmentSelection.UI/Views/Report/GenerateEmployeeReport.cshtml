@@ -1,0 +1,28 @@
+﻿@model RecruitmentSelection.UI.Models.RequestReport
+
+<div>
+    <h4>Generación Reporte Empleados</h4>
+    <div class="form-group">
+        <br>
+        @using (Html.BeginForm("GenerateEmployeeReport", "Report", FormMethod.Post, new { enctype = "multipart/form-data", id = "idform", @class = "navbar-form navbar-left" }))
+        {
+            <div class="d-flex flex-column w-50 mb-5">
+                <div class="d-flex mt-1 justify-content-between align-items-center">
+                    <div>
+                        <b>Fecha Inicial: </b>
+                        <div>@Html.TextBoxFor(m => m.InitialDate, new { @type = "date" })</div>
+                    </div>
+                    <div>
+                        <b>Fecha Final: </b>
+                        <div>@Html.TextBoxFor(m => m.EndDate, new { @type = "date" })</div>
+                    </div>
+                    <br />
+                    <div>
+                        <input class="btn btn-dark mt-3" style="width: 180px; height: 45px;" type="submit" value="Generar Reporte" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

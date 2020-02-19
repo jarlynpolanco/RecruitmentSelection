@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RecruitmentSelection.UI.Models.Proficiency>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Competencias</h1>
+
+<p>
+    <a asp-action="ProficienciesCreate" asp-route-id="@ViewData["CandidateID"]">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="ProficienciesDelete" asp-route-candidateId="@item.CandidateID" asp-route-proficiencyId="@item.ID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

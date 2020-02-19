@@ -1,0 +1,39 @@
+﻿@inject Models.Context.RecruitmentDbContext db
+
+<h3>Component</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var candidate in candidates)
+        {
+            <tr>
+                <td>@candidate.ID</td>
+                <td>@candidate.Name</td>
+                <td>
+                    <button @onclick="(() => ModificarClick(candidate))">Modificar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {   
+
+    private IEnumerable<Models.Candidate> candidates;
+
+    protected override void OnInitialized()
+    {
+        candidates = db.Candidates.ToList();
+    }
+
+    private void ModificarClick(Models.Candidate candidate)
+    {
+
+    }
+}

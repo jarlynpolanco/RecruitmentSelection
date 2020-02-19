@@ -1,0 +1,54 @@
+﻿@model RecruitmentSelection.UI.Models.JobExperience
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Creación</h1>
+
+<h4>Experiencia de Trabajo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="JobExperiencesCreate" asp-route-id="@Model.CandidateID">
+            <input asp-for="CandidateID" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bussiness" class="control-label"></label>
+                <input asp-for="Bussiness" class="form-control" />
+                <span asp-validation-for="Bussiness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobPosition" class="control-label"></label>
+                <input asp-for="JobPosition" class="form-control" />
+                <span asp-validation-for="JobPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialDate" class="control-label"></label>
+                <input asp-for="InitialDate" class="form-control" />
+                <span asp-validation-for="InitialDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="JobExperiences" asp-route-id="@Model.CandidateID">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

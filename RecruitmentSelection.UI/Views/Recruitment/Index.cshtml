@@ -1,0 +1,69 @@
+﻿@model IEnumerable<RecruitmentSelection.UI.Models.Candidate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Reclutamiento</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalaryWished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Languages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecommendedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobPosition.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalaryWished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Languages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecommendedBy)
+            </td>
+            <td>
+                <a asp-action="Recruit" asp-route-id="@item.ID">Contratar</a> |
+                <a href="javscript:void" onclick="popup('Recruitment/CandidateDetails/@item.ID', 'CandidateDetails', 800, 480)">Detalles</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+

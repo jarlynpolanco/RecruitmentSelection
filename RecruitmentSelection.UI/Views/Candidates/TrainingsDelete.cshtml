@@ -1,0 +1,57 @@
+﻿@model RecruitmentSelection.UI.Models.Training
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>Esta seguro que desea eliminar este registro?</h3>
+<div>
+    <h4>Entrenamientos</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InitialDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InitialDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Institution)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Institution)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candidate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candidate.Department)
+        </dd>
+    </dl>
+
+    <form asp-action="TrainingsDelete" asp-route-candidateId="@Model.CandidateID" asp-route-trainingId="@Model.ID">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Trainings" asp-route-id="@Model.CandidateID">Volver a la lista</a>
+    </form>
+</div>

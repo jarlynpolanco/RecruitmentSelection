@@ -1,0 +1,77 @@
+﻿@model IEnumerable<RecruitmentSelection.UI.Models.Candidate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Candidatos</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalaryWished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Languages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecommendedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobPosition.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalaryWished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Languages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecommendedBy)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Modificar</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a> |
+                <a asp-action="Proficiencies" asp-route-id="@item.ID">Competencias</a> |
+                <a asp-action="Trainings" asp-route-id="@item.ID">Capacitaciones</a> |
+                <a asp-action="JobExperiences" asp-route-id="@item.ID">Experiencias</a> |
+                <a asp-action="Languages" asp-route-id="@item.ID">Idiomas</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+

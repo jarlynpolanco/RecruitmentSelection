@@ -1,0 +1,58 @@
+﻿@model IEnumerable<RecruitmentSelection.UI.Models.JobExperience>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Experiencia Laboral</h1>
+
+<p>
+    <a asp-action="JobExperiencesCreate" asp-route-id="@ViewData["CandidateID"]">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bussiness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InitialDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bussiness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobPosition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InitialDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    <a asp-action="JobExperiencesDelete" asp-route-candidateId="@item.CandidateID" asp-route-jobExperienceId="@item.ID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
