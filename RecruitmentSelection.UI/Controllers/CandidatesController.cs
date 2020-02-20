@@ -81,6 +81,13 @@ namespace RecruitmentSelection.UI.Controllers
                 ViewData["JobPositionID"] = new SelectList(_context.JobPositions, "ID", "Name", candidate.JobPositionID);
                 return View(candidate);
             }
+            var jobPosition = _context.JobPositions.Where(x => x.ID == candidate.JobPositionID).FirstOrDefault();
+            if(candidate.SalaryWished > jobPosition.MaximumSalary) 
+            {
+                ViewBag.Error = "El salario deseado por el candidato no puede ser mayor al máximo ofertado para la vacante.";
+                ViewData["JobPositionID"] = new SelectList(_context.JobPositions, "ID", "Name", candidate.JobPositionID);
+                return View(candidate);
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(candidate);

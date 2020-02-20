@@ -15,11 +15,11 @@ namespace RecruitmentSelection.UI.Models
         public RiskLevel Risk { get; set; }
 
         [Required]
-        [Display(Name = "Salario Máximo")]
+        [Display(Name = "Salario Mínimo")]
         public double MinimumSalary { get; set; }
 
         [Required]
-        [Display(Name = "Salario Minimo")]
+        [Display(Name = "Salario Máximo")]
         public double MaximumSalary { get; set; }
 
         [Required]

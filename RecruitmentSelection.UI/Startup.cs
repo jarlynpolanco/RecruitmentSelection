@@ -6,6 +6,10 @@ using Microsoft.Extensions.Hosting;
 using RecruitmentSelection.UI.Models.Context;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using RecruitmentSelection.UI.Models;
+using RecruitmentSelection.UI.Models.Validators;
 
 namespace RecruitmentSelection.UI
 {
@@ -25,6 +29,10 @@ namespace RecruitmentSelection.UI
             string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
             services.AddDbContext<RecruitmentDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection").Replace("[DataDirectory]", path)));
+            services.AddMvc().AddFluentValidation();
+            services.AddTransient<IValidator<JobPosition>, JobPositionValidator>();
+            services.AddTransient<IValidator<JobExperience>, JobExperienceValidator>();
+            services.AddTransient<IValidator<Training>, TrainingValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

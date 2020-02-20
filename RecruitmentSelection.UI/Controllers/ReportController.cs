@@ -76,7 +76,7 @@ namespace RecruitmentSelection.UI.Controllers
 
             employees.ToList().ForEach(employee =>
             {
-                stringBuilderEmployees.Append(@$"<tr>
+                stringBuilderEmployees.Append($@"<tr>
                                     <td>{employee.DocumentNumber}</td>
                                     <td>{employee.Name}</td>
                                     <td>{employee.InitialDate.ToString("dd/MM/yyyy")}</td>
